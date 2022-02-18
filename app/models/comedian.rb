@@ -18,7 +18,8 @@ class Comedian < ApplicationRecord
   end
 
   def longest_special
-    longest_array = specials.order(runtime: :desc).limit(1)
-    longest_array[0].runtime
+    specials.maximum(:runtime)
+    # longest_array = specials.order(runtime: :desc).limit(1)
+    # longest_array[0].runtime
   end
 end
